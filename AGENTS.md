@@ -2,7 +2,7 @@
 - Project name: Karlos 64256768
 - Unity version: Unity 6000.0.77f1
 - Active game object:
-  - Name: Interactable Physics Object Stand
+  - Name: Interactable Physics Object UI Heavy
   - Tag: Untagged
-  - Layer: Ground
+  - Layer: UI
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
