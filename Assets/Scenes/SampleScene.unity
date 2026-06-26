@@ -1278,7 +1278,7 @@ GameObject:
   - component: {fileID: 222627451}
   - component: {fileID: 222627453}
   - component: {fileID: 222627452}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2759,7 +2759,7 @@ GameObject:
   - component: {fileID: 424850888}
   - component: {fileID: 424850887}
   - component: {fileID: 424850891}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5295,7 +5295,7 @@ GameObject:
   - component: {fileID: 1166204542}
   - component: {fileID: 1166204541}
   - component: {fileID: 1166204540}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10861,7 +10861,7 @@ MonoBehaviour:
   cam: {fileID: 8881669359787366592}
   interactableLayer:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 5120
   maxDistance: 5
   knockbackForce: 10
   showPromtText: 0
