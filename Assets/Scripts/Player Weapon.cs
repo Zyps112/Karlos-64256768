@@ -3,8 +3,12 @@ using UnityEngine;
 public class PlayerWeapon : MonoBehaviour
 {
     public Transform cam;
+    public Camera mainCamera;
     public Transform guntip;
     public LayerMask shootableLayers;
+    public Recoil recoilScript;
+
+    public bool isAiming;
 
     public float distanceToSwitchToGun;
 
@@ -14,6 +18,7 @@ public class PlayerWeapon : MonoBehaviour
     public float knockbackForce;
 
     bool switchToGun;
+    bool isShooting;
 
     Transform rayTransform;
 
@@ -24,6 +29,8 @@ public class PlayerWeapon : MonoBehaviour
 
     private void Update()
     {
+        Shoot();
+
         RaycastHit hit;
         if(switchToGun == false)
         {
@@ -44,7 +51,7 @@ public class PlayerWeapon : MonoBehaviour
 
                 if(layerName == "Shootable Physics Objects")
                 {
-                    if(Input.GetMouseButtonDown(0))
+                    if(isShooting)
                     {
                         hit.rigidbody.AddForce(cam.TransformDirection(Vector3.forward) * knockbackForce, ForceMode.Impulse);
                     }
@@ -63,7 +70,7 @@ public class PlayerWeapon : MonoBehaviour
 
                 if (layerName == "Shootable Physics Objects")
                 {
-                    if (Input.GetMouseButtonDown(0))
+                    if(isShooting)
                     {
                         hit.rigidbody.AddForce(guntip.TransformDirection(Vector3.forward) * knockbackForce, ForceMode.Impulse);
                     }
@@ -73,6 +80,38 @@ public class PlayerWeapon : MonoBehaviour
         else
         {
             switchToGun = false;
+        }
+    }
+
+    public void Shoot()
+    {
+        if(Input.GetMouseButton(0))
+        {
+            recoilScript.RecoilFire();
+            isShooting = true;
+        }
+        else
+        {
+            isShooting = false;
+        }
+
+        if (Input.GetMouseButton(1))
+        {
+            isAiming = true;
+            mainCamera.fieldOfView = Mathf.Lerp(
+                mainCamera.fieldOfView,
+                40f,
+                Time.deltaTime * 10f
+            );
+        }
+        else
+        {
+            isAiming = false;
+            mainCamera.fieldOfView = Mathf.Lerp(
+                mainCamera.fieldOfView,
+                60f,
+                Time.deltaTime * 10f
+            );
         }
     }
 }
