@@ -36,17 +36,20 @@ public class PlayerMovement : MonoBehaviour
 
     public float groundDistance = 0.4f;
 
+    public bool isGrounded;
 
     bool isCrouching;
-    bool isGrounded;
     Vector3 velocity;
     Vector3 currentMoveVelocity;
 
     private void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundLayer);
-        if (isGrounded && velocity.y < 0)
-            velocity.y = -0.0f;
+
+        if (isGrounded && velocity.y <= 0)
+        {
+            velocity.y = 0f;
+        }
 
         HandleCrouch();
 
@@ -116,5 +119,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (isCrouching)
             speed = Mathf.Min(speed, walkSpeed * 0.5f);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = isGrounded ? Color.green : Color.red;
+        Gizmos.DrawWireSphere(groundCheck.position, groundDistance);
     }
 }
