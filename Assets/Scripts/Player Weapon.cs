@@ -7,6 +7,7 @@ public class PlayerWeapon : MonoBehaviour
     public Transform guntip;
     public LayerMask shootableLayers;
     public Recoil recoilScript;
+    public Animations_PlaceHolder animScript;
 
     public bool isAiming;
 
@@ -30,6 +31,7 @@ public class PlayerWeapon : MonoBehaviour
     private void Update()
     {
         Shoot();
+        animScript.FireAnim(isShooting);
 
         RaycastHit hit;
         if(switchToGun == false)
