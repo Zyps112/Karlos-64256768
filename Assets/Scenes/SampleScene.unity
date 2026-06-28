@@ -5888,8 +5888,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponScript: {fileID: 1589228271}
   recoilX: -0.3
-  recoilY: 0.3
-  recoilZ: 0.3
+  recoilY: 2
+  recoilZ: 1
   aimRecoilX: -0.05
   aimRecoilY: 0.2
   aimRecoilZ: 0.2
@@ -6567,7 +6567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationLag: 6
-  swayAmount: 2
+  swayAmount: 5
 --- !u!1 &494500931
 GameObject:
   m_ObjectHideFlags: 0
