@@ -18,6 +18,9 @@ public class PlayerWeapon : MonoBehaviour
 
     public float knockbackForce;
 
+    public float firerate;
+    float firerateTimer;
+
     bool switchToGun;
     bool isShooting;
 
@@ -58,6 +61,14 @@ public class PlayerWeapon : MonoBehaviour
                         hit.rigidbody.AddForce(cam.TransformDirection(Vector3.forward) * knockbackForce, ForceMode.Impulse);
                     }
                 }
+
+                if(layerName == "Enemy")
+                {
+                    if(isShooting)
+                    {
+                        hit.rigidbody.AddForce(cam.TransformDirection(Vector3.forward) * knockbackForce, ForceMode.Impulse);
+                    }
+                }
             }
         }
 
@@ -71,6 +82,14 @@ public class PlayerWeapon : MonoBehaviour
                 string layerName = LayerMask.LayerToName(layer);
 
                 if (layerName == "Shootable Physics Objects")
+                {
+                    if(isShooting)
+                    {
+                        hit.rigidbody.AddForce(guntip.TransformDirection(Vector3.forward) * knockbackForce, ForceMode.Impulse);
+                    }
+                }
+
+                if(layerName == "Enemy")
                 {
                     if(isShooting)
                     {
@@ -114,6 +133,14 @@ public class PlayerWeapon : MonoBehaviour
                 60f,
                 Time.deltaTime * 10f
             );
+        }
+    }
+
+    public void FireRate()
+    {
+        if (isShooting && firerateTimer == firerate)
+        {
+            isShooting = false;
         }
     }
 }
