@@ -4,6 +4,7 @@ public class PlayerGunDamage : MonoBehaviour
 {
     public float damage;
     public float range;
+    public float knockback;
 
     [Header("References")]
     public Transform playerCam;
@@ -17,6 +18,11 @@ public class PlayerGunDamage : MonoBehaviour
             {
                 enemy.health -= damage;
                 Debug.Log(enemy.health);
+            }
+
+            if(hit.collider.gameObject.TryGetComponent(out Rigidbody rb))
+            {
+                rb.AddForce(playerCam.TransformDirection(Vector3.forward) * knockback, ForceMode.Impulse);
             }
         }
     }
