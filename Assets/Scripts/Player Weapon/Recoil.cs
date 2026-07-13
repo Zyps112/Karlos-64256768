@@ -27,7 +27,6 @@ public class Recoil : MonoBehaviour
 
     private void Update()
     {
-        isAiming = weaponScript.isAiming;
 
         targetRotation = Vector3.Lerp(targetRotation, Vector3.zero, returnSpeed * Time.deltaTime);
         currentRotation = Vector3.Slerp(currentRotation, targetRotation, snappiness * Time.fixedDeltaTime);

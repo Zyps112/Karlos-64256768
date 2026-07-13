@@ -4516,7 +4516,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   automatic: 1
-  firerate: 1
+  firerate: 0.1
   firerateTimer: 0
   recoil: {fileID: 435085725}
 --- !u!114 &316964337
@@ -4532,7 +4532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 25
-  range: 10
+  range: 100
   knockback: 10
   playerCam: {fileID: 1044547461}
 --- !u!1 &319442014
@@ -6021,15 +6021,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b961b7d95fad88244bbbab7678dc31ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponScript: {fileID: 1589228271}
-  recoilX: -0.3
-  recoilY: 2
-  recoilZ: 1
-  aimRecoilX: -0.05
-  aimRecoilY: 0.2
-  aimRecoilZ: 0.2
-  snappiness: 10
-  returnSpeed: 10
+  weaponScript: {fileID: 0}
+  recoilX: -5
+  recoilY: 3
+  recoilZ: 3
+  aimRecoilX: -2
+  aimRecoilY: 1
+  aimRecoilZ: 1
+  snappiness: 8
+  returnSpeed: 8
 --- !u!1 &436930072
 GameObject:
   m_ObjectHideFlags: 0
@@ -20190,8 +20190,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1589228274}
   - component: {fileID: 1589228273}
+  - component: {fileID: 1589228275}
   - component: {fileID: 1589228272}
-  - component: {fileID: 1589228271}
   - component: {fileID: 1589228270}
   m_Layer: 3
   m_Name: ---Player---
@@ -20220,32 +20220,6 @@ MonoBehaviour:
   knockbackForce: 10
   interactionText: {fileID: 473367288}
   interactionInputText: {fileID: 1339653015}
---- !u!114 &1589228271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1589228269}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e49b3b506ef0574097e964dd3c1e6c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 435085724}
-  mainCamera: {fileID: 685044340}
-  guntip: {fileID: 1274908365}
-  shootableLayers:
-    serializedVersion: 2
-    m_Bits: 576
-  recoilScript: {fileID: 435085725}
-  animScript: {fileID: 316964334}
-  isAiming: 0
-  distanceToSwitchToGun: 0
-  maxDistance: 100
-  minDistance: 3
-  knockbackForce: 10
-  firerate: 0
 --- !u!114 &1589228272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20260,6 +20234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1589228273}
   cam: {fileID: 1044547461}
+  playerCam: {fileID: 685044340}
   speed: 15
   walkSpeed: 8
   sprintSpeed: 10
@@ -20267,12 +20242,17 @@ MonoBehaviour:
   jumpHeight: 2.5
   acceleration: 20
   deceleration: 30
+  airAcceleration: 8
+  airDeceleration: 3
+  maxAirSpeed: 10
   standHeight: 2
   crouchHeight: 1
   crouchTransitionSpeed: 10
   ceilingLayer:
     serializedVersion: 2
     m_Bits: 4294967295
+  baseFOV: 60
+  sprintFOVMultiplier: 1.5
   groundCheck: {fileID: 2058262537}
   groundLayer:
     serializedVersion: 2
@@ -20322,6 +20302,24 @@ Transform:
   - {fileID: 2058262537}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1589228275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589228269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f2cc79f4d7f5984e85f5c4aed3876dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalVolume: {fileID: 832575518}
+  cam: {fileID: 1044547460}
+  dofMaxDistance: 100
+  dofLayer:
+    serializedVersion: 2
+    m_Bits: 22391
 --- !u!1 &1597139416
 GameObject:
   m_ObjectHideFlags: 0

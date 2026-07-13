@@ -1,11 +1,15 @@
-﻿using UnityEngine;
+﻿using Mono.Cecil;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.Rendering;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("References")]
     public CharacterController controller;
     public Transform cam;
+    public Camera playerCam;
 
-    [Header("Config")]
+    [Header("Ground Movement Config")]
     public float speed;
 
     public float walkSpeed = 5f;
@@ -20,6 +24,13 @@ public class PlayerMovement : MonoBehaviour
     
     public float deceleration = 15f;
 
+    [Header("Air Movement Config")]
+    public float airAcceleration = 2f;
+
+    public float airDeceleration = 1f;
+
+    public float maxAirSpeed = 10f;
+
     [Header("Crouch Config")]
     public float standHeight = 2f;
 
@@ -28,6 +39,11 @@ public class PlayerMovement : MonoBehaviour
     public float crouchTransitionSpeed = 10f;
 
     public LayerMask ceilingLayer;
+
+    [Header("Camera Config")]
+    public float baseFOV = 60f;
+
+    public float sprintFOVMultiplier = 1.5f;
 
     [Header("Ground Check")]
     public Transform groundCheck;
@@ -44,6 +60,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        HandleCrouch();
+
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundLayer);
 
         if (isGrounded && velocity.y <= 0)
@@ -51,31 +69,35 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = 0f;
         }
 
-        HandleCrouch();
-
         float x = Input.GetAxisRaw("Horizontal");
         float z = Input.GetAxisRaw("Vertical");
         Vector3 targetMove = (transform.right * x + transform.forward * z).normalized * speed;
 
         float rate;
-        if (targetMove.magnitude > 0)
+        if(isGrounded)
         {
-            rate = acceleration;
+            rate = targetMove.magnitude > 0 ? acceleration : deceleration;
+            currentMoveVelocity = Vector3.MoveTowards(currentMoveVelocity, targetMove, rate * Time.deltaTime);
         }
         else
         {
-            rate = deceleration;
+            rate = targetMove.magnitude > 0 ? airAcceleration : airDeceleration;
+            Vector3 airTargetMove = Vector3.ClampMagnitude(targetMove, maxAirSpeed);
+            currentMoveVelocity = Vector3.MoveTowards(currentMoveVelocity, airTargetMove, rate * Time.deltaTime);
         }
+
+            controller.Move(velocity * Time.deltaTime);
 
         currentMoveVelocity = Vector3.MoveTowards(currentMoveVelocity, targetMove, rate * Time.deltaTime);
 
         controller.Move(currentMoveVelocity * Time.deltaTime);
 
+
+
         if (Input.GetButtonDown("Jump") && isGrounded)
             velocity.y = Mathf.Sqrt(jumpHeight * -2.0f * gravity);
 
         velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
 
         if(Input.GetKey(KeyCode.LeftShift))
         {
@@ -85,6 +107,10 @@ public class PlayerMovement : MonoBehaviour
         {
             speed = walkSpeed;
         }
+
+        float velocityClampled = Mathf.Clamp(controller.velocity.magnitude, 0.5f, sprintSpeed * 2.0f);
+        float targetFOV = baseFOV + sprintFOVMultiplier * velocityClampled;
+        playerCam.fieldOfView = Mathf.Lerp(playerCam.fieldOfView, targetFOV, Time.deltaTime * 10.0f);
     }
 
     void HandleCrouch()
