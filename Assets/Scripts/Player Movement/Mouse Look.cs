@@ -1,6 +1,7 @@
 using UnityEngine;
+using Unity.Netcode;
 
-public class MouseLook : MonoBehaviour
+public class MouseLook : NetworkBehaviour
 {
     public Transform playerObject;
 
@@ -10,11 +11,15 @@ public class MouseLook : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
     }
     void Update()
     {
+        if(!IsOwner)
+        { 
+            return;
+        }
         float mouseX = Input.GetAxis("Mouse X") * mouseSens;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSens;
 

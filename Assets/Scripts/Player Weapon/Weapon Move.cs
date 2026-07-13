@@ -1,6 +1,7 @@
 using UnityEngine;
+using Unity.Netcode;
 
-public class WeaponMove : MonoBehaviour
+public class WeaponMove : NetworkBehaviour
 {
     public float rotationLag = 6f;
     public float swayAmount = 2f;
@@ -14,6 +15,10 @@ public class WeaponMove : MonoBehaviour
 
     private void Update()
     {
+        if(!IsOwner)
+        {
+            return;
+        }
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
 

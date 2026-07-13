@@ -1,13 +1,13 @@
-﻿using Mono.Cecil;
-using Unity.VisualScripting;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Rendering;
-public class PlayerMovement : MonoBehaviour
+using Unity.Netcode;
+public class PlayerMovement : NetworkBehaviour
 {
     [Header("References")]
     public CharacterController controller;
     public Transform cam;
     public Camera playerCam;
+    public AudioListener audioListener; // add this if you have one
 
     [Header("Ground Movement Config")]
     public float speed;
@@ -58,8 +58,25 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     Vector3 currentMoveVelocity;
 
+
+    public override void OnNetworkSpawn()
+    {
+        if (!IsOwner)
+        {
+            if (playerCam != null) playerCam.gameObject.SetActive(false);
+            if (audioListener != null) audioListener.enabled = false;
+            enabled = false;
+            return;
+        }
+    }
+
     private void Update()
     {
+        if(!IsOwner)
+        {
+            return;
+        }
+
         HandleCrouch();
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundLayer);

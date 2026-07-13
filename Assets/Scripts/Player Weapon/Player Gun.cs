@@ -1,7 +1,8 @@
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerGun : MonoBehaviour
+public class PlayerGun : NetworkBehaviour
 {
     public UnityEvent OnGunShoot;
 
@@ -9,19 +10,31 @@ public class PlayerGun : MonoBehaviour
 
     public float firerate;
 
+    private NetworkVariable<int> shotsFired = new NetworkVariable<int>(1, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+
     [SerializeField]
     private float firerateTimer;
 
     [Header("References")]
     public Recoil recoil;
 
-    private void Start()
+    public override void OnNetworkSpawn()
     {
         firerateTimer = firerate;
+
+        shotsFired.OnValueChanged += (int prevValue, int newValue) =>
+        {
+            Debug.Log(OwnerClientId + ":shots fired" + shotsFired.Value);
+        };
     }
 
     private void Update()
     {
+        if(!IsOwner)
+        {
+            return;
+        }
+
         if(automatic)
         {
             if(Input.GetMouseButton(0))
@@ -31,6 +44,7 @@ public class PlayerGun : MonoBehaviour
                     OnGunShoot?.Invoke();
                     recoil.RecoilFire();
                     firerateTimer = firerate;
+                    shotsFired.Value += 1;
                 }
             }
         }
