@@ -9,10 +9,10 @@ public class MouseLook : NetworkBehaviour
 
     float xRotation = 0f;
 
-    void Start()
+    public override void OnNetworkSpawn()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
     void Update()
     {
@@ -20,6 +20,7 @@ public class MouseLook : NetworkBehaviour
         { 
             return;
         }
+
         float mouseX = Input.GetAxis("Mouse X") * mouseSens;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSens;
 

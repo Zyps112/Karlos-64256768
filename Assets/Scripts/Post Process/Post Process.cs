@@ -1,28 +1,26 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using Unity.Netcode;
 
-public class PostProcess : MonoBehaviour
+public class PostProcess : NetworkBehaviour
 {
-    public Volume globalVolume;
     public GameObject cam;
     public float dofMaxDistance;
     public LayerMask dofLayer;
 
+    private Volume globalVolume;
     private DepthOfField depthOfField;
 
-    private void Start()
+    public override void OnNetworkSpawn()
     {
+        globalVolume = FindAnyObjectByType<Volume>();
+
         if (globalVolume != null && globalVolume.profile != null)
         {
-            // 2. Fetch the Depth of Field override from the profile
             if (globalVolume.profile.TryGet<DepthOfField>(out depthOfField))
             {
-                Debug.Log("Depth of Field successfully referenced!");
-            }
-            else
-            {
-                Debug.LogWarning("Depth of Field override not found in the Volume Profile.");
+                return;
             }
         }
     }
