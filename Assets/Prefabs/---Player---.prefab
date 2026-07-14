@@ -192,6 +192,37 @@ Transform:
   - {fileID: 213054055110162953}
   m_Father: {fileID: 6191965565063574257}
   m_LocalEulerAnglesHint: {x: -0.6465978, y: 0.13037196, z: -59.910297}
+--- !u!1 &386935562640936025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 661203442953235486}
+  m_Layer: 3
+  m_Name: Object Holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &661203442953235486
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386935562640936025}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3699342831374053524}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &407564815487991582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1559,6 +1590,7 @@ Transform:
   m_Children:
   - {fileID: 2043595404612910148}
   - {fileID: 9178547607117258573}
+  - {fileID: 661203442953235486}
   m_Father: {fileID: 11741802170895444}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5714959793526656688
@@ -3608,6 +3640,7 @@ GameObject:
   - component: {fileID: 3417982073644338999}
   - component: {fileID: 7291179212462927188}
   - component: {fileID: 8026326515509996383}
+  - component: {fileID: 9035515969826888884}
   m_Layer: 3
   m_Name: ---Player---
   m_TagString: Untagged
@@ -3789,6 +3822,31 @@ MonoBehaviour:
     m_Bits: 5888
   groundDistance: 0.5
   isGrounded: 0
+--- !u!114 &9035515969826888884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3449299322724231384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 821a129b9b6b38e49b9e546e11dcc5f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupLayer:
+    serializedVersion: 2
+    m_Bits: 5632
+  cam: {fileID: 3699342831374053524}
+  maxDistance: 5
+  objectHolder: {fileID: 661203442953235486}
+  smoothTime: 0.15
+  bobAmount: 0.05
+  bobSpeed: 2
+  holdDistance: 2
+  minHoldDistance: 1
+  maxHoldDistance: 5
+  scrollSensitivity: 2
 --- !u!1 &3537819036009120701
 GameObject:
   m_ObjectHideFlags: 0
