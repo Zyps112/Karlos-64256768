@@ -929,6 +929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 821a129b9b6b38e49b9e546e11dcc5f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   HoldingObject: 0
   pickupLayer:
     serializedVersion: 2

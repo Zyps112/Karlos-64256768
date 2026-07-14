@@ -27,6 +27,11 @@ public class PostProcess : NetworkBehaviour
 
     private void Update()
     {
+        if(!IsOwner)
+        {
+            return;
+        }
+
         RaycastHit hit;
         if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, dofMaxDistance, dofLayer))
         {
