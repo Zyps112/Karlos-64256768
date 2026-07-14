@@ -1,7 +1,10 @@
 using UnityEngine;
+using Unity.Netcode;
 
-public class PickupSystem : MonoBehaviour
+public class PickupSystem : NetworkBehaviour
 {
+    public bool HoldingObject;
+
     public LayerMask pickupLayer;
     public Transform cam;
     public float maxDistance;
@@ -24,6 +27,11 @@ public class PickupSystem : MonoBehaviour
 
     private void Update()
     {
+        if(!IsOwner)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (heldObject == null)
@@ -41,6 +49,11 @@ public class PickupSystem : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(!IsOwner)
+        {
+            return;
+        }
+
         if (heldObject != null && heldRb != null)
         {
             Vector3 targetPos = cam.position + cam.forward * holdDistance;
@@ -65,6 +78,7 @@ public class PickupSystem : MonoBehaviour
 
             if (heldRb != null)
             {
+                HoldingObject = true;
                 heldRb.linearVelocity = Vector3.zero;
                 heldRb.angularVelocity = Vector3.zero;
                 heldRb.isKinematic = true;
@@ -79,6 +93,7 @@ public class PickupSystem : MonoBehaviour
     {
         if (heldRb != null)
         {
+            HoldingObject = false;
             heldRb.isKinematic = false;
             heldRb.interpolation = RigidbodyInterpolation.None;
         }
