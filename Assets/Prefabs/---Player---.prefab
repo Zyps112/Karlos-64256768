@@ -1260,6 +1260,7 @@ MonoBehaviour:
   firerate: 1
   aimSpeed: 3
   bullets: 5
+  maxBullets: 5
   canShoot: 0
   haveBullets: 0
   firerateTimer: 0

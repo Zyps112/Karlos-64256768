@@ -14,6 +14,8 @@ public class PlayerGun : NetworkBehaviour
 
     public int bullets;
 
+    public int maxBullets;
+
     public bool canShoot;
 
     public bool haveBullets;
@@ -49,6 +51,15 @@ public class PlayerGun : NetworkBehaviour
         {
             Debug.Log(OwnerClientId + ":shots fired" + shotsFired.Value);
         };
+    }
+
+    public void AddBullets(int amount)
+    {
+        bullets = Mathf.Min(bullets + amount, maxBullets);
+        if(bullets >= maxBullets)
+        {
+            bullets = maxBullets;
+        }
     }
 
     private void Update()
