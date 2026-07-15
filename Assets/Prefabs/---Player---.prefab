@@ -141,7 +141,8 @@ MonoBehaviour:
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
-  m_Cameras: []
+  m_Cameras:
+  - {fileID: 1838386080934411290}
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
@@ -295,7 +296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9034394290964921863
 Transform:
   m_ObjectHideFlags: 0
@@ -502,6 +503,37 @@ MonoBehaviour:
   SwitchTransformSpaceWhenParented: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!1 &2089643666278414046
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7723079585901583224}
+  m_Layer: 3
+  m_Name: GunTip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7723079585901583224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089643666278414046}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.264}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7168610319410047438}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2122089964654611497
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,7 +545,7 @@ GameObject:
   - component: {fileID: 1601308087813707411}
   - component: {fileID: 1450387178398661603}
   - component: {fileID: 2512183563029422401}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Karlos Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -953,7 +985,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8213012009413518650}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1016,7 +1048,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8388518235126064860}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Weapon_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1047,7 +1079,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5419311277538948483}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1080,7 +1112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6874470568737894721}
   - component: {fileID: 8661644726225375004}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1193,6 +1225,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1601308087813707411}
+  - {fileID: 7723079585901583224}
   m_Father: {fileID: 9178547607117258573}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6743971135319265592
@@ -1252,6 +1285,7 @@ MonoBehaviour:
   range: 100
   knockback: 100
   playerCam: {fileID: 3699342831374053524}
+  bulletImpact: {fileID: 6991687968480867223, guid: b9e71a58e672d1647a4c8843e091789c, type: 3}
 --- !u!1 &8077173189169646663
 GameObject:
   m_ObjectHideFlags: 0
@@ -1261,7 +1295,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7676430001401710093}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1325,7 +1359,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4299067873673645508}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Handle_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
