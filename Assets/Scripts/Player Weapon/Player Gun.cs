@@ -26,6 +26,10 @@ public class PlayerGun : NetworkBehaviour
 
     [SerializeField] private Vector3 aimPosition = new Vector3(0.005f, -0.109f, 0.787f);
 
+    [SerializeField] private float mussleFlashTimer;
+
+    [SerializeField] private float mussleFlashDuration = 0.05f;
+
     private bool isAiming;
 
     private Vector3 gunNormalPosition;
@@ -41,11 +45,21 @@ public class PlayerGun : NetworkBehaviour
 
     public SkinnedMeshRenderer gunRenderer;
 
+    public GameObject mussleFlash;
+
+    public Transform gunTip;
+
     public override void OnNetworkSpawn()
     {
         firerateTimer = firerate;
 
         gunNormalPosition = transform.localPosition;
+
+        // Make sure the flash starts hidden
+        if (mussleFlash != null)
+        {
+            mussleFlash.transform.localScale = Vector3.zero;
+        }
 
         shotsFired.OnValueChanged += (int prevValue, int newValue) =>
         {
@@ -56,7 +70,7 @@ public class PlayerGun : NetworkBehaviour
     public void AddBullets(int amount)
     {
         bullets = Mathf.Min(bullets + amount, maxBullets);
-        if(bullets >= maxBullets)
+        if (bullets >= maxBullets)
         {
             bullets = maxBullets;
         }
@@ -64,46 +78,80 @@ public class PlayerGun : NetworkBehaviour
 
     private void Update()
     {
-        if(!IsOwner)
+        if (!IsOwner)
         {
             return;
         }
 
-        if(automatic)
+        HandleShooting();
+        HandleFirerateTimer();
+        HandleMussleFlashTimer();
+        HandleAiming();
+        HandleBulletState();
+        HandlePickupState();
+    }
+
+    private void HandleShooting()
+    {
+        bool wantsToShoot = automatic
+            ? Input.GetMouseButton(0)
+            : Input.GetMouseButtonDown(0);
+
+        if (wantsToShoot && isAiming && canShoot && haveBullets && firerateTimer <= 0)
         {
-            if(Input.GetMouseButton(0) && isAiming && canShoot && haveBullets)
-            {
-                if(firerateTimer <= 0)
-                {
-                    OnGunShoot?.Invoke();
-                    recoil.RecoilFire();
-                    bullets--;
-                    gunAnimator.Play("Fire", -1, 0f);
-                    firerateTimer = firerate;
-                    shotsFired.Value += 1;
-                }
-            }
+            Fire();
         }
-        else
+    }
+
+    private void Fire()
+    {
+        OnGunShoot?.Invoke();
+        recoil.RecoilFire();
+        bullets--;
+        gunAnimator.Play("Fire", -1, 0f);
+        firerateTimer = firerate;
+
+        if (automatic)
         {
-            if(Input.GetMouseButtonDown(0) && isAiming && canShoot && haveBullets)
-            {
-                if(firerateTimer <= 0)
-                {
-                    OnGunShoot?.Invoke();
-                    recoil.RecoilFire();
-                    bullets--;
-                    gunAnimator.Play("Fire", -1, 0f);
-                    firerateTimer = firerate;
-                }
-            }
+            shotsFired.Value += 1;
         }
 
-        if(firerateTimer >= 0)
+        ShowMussleFlash();
+    }
+
+    private void ShowMussleFlash()
+    {
+        if (mussleFlash == null)
+        {
+            return;
+        }
+
+        mussleFlash.transform.localScale = Vector3.one;
+        mussleFlashTimer = mussleFlashDuration;
+    }
+
+    private void HandleFirerateTimer()
+    {
+        if (firerateTimer >= 0)
         {
             firerateTimer -= Time.deltaTime;
         }
+    }
 
+    private void HandleMussleFlashTimer()
+    {
+        if (mussleFlashTimer > 0)
+        {
+            mussleFlashTimer -= Time.deltaTime;
+            if (mussleFlashTimer <= 0 && mussleFlash != null)
+            {
+                mussleFlash.transform.localScale = Vector3.zero;
+            }
+        }
+    }
+
+    private void HandleAiming()
+    {
         if (Input.GetMouseButton(1) && canShoot)
         {
             isAiming = true;
@@ -122,25 +170,17 @@ public class PlayerGun : NetworkBehaviour
                 Time.deltaTime * aimSpeed
             );
         }
+    }
 
-        if(bullets <= 0)
-        {
-            haveBullets = false;
-        }
-        else
-        {
-            haveBullets = true;
-        }
+    private void HandleBulletState()
+    {
+        haveBullets = bullets > 0;
+    }
 
-        if(pickupScript.HoldingObject)
-        {
-            canShoot = false;
-            gunRenderer.enabled = false;
-        }
-        else if(!pickupScript.HoldingObject)
-        {
-            canShoot = true;
-            gunRenderer.enabled = true;
-        }
+    private void HandlePickupState()
+    {
+        bool holding = pickupScript.HoldingObject;
+        canShoot = !holding;
+        gunRenderer.enabled = !holding;
     }
 }
