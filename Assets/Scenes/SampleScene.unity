@@ -19619,6 +19619,7 @@ GameObject:
   - component: {fileID: 1247443795416443529}
   - component: {fileID: 2606154728235775666}
   - component: {fileID: 8449971087319946807}
+  - component: {fileID: 8449971087319946811}
   - component: {fileID: 8449971087319946808}
   - component: {fileID: 8449971087319946809}
   - component: {fileID: 8449971087319946810}
@@ -19723,6 +19724,7 @@ GameObject:
   - component: {fileID: 161156711367643061}
   - component: {fileID: 8414373522737093546}
   - component: {fileID: 8414373522737093547}
+  - component: {fileID: 8414373522737093551}
   - component: {fileID: 8414373522737093548}
   - component: {fileID: 8414373522737093549}
   - component: {fileID: 8414373522737093550}
@@ -19861,6 +19863,7 @@ GameObject:
   - component: {fileID: 5235392676236250793}
   - component: {fileID: 6066997611860742615}
   - component: {fileID: 6822840457319119250}
+  - component: {fileID: 6822840457319119254}
   - component: {fileID: 6822840457319119251}
   - component: {fileID: 6822840457319119252}
   - component: {fileID: 6822840457319119253}
@@ -19927,7 +19930,7 @@ MonoBehaviour:
   RotationMaxInterpolationTime: 0.1
   ScaleLerpSmoothing: 1
   ScaleMaxInterpolationTime: 0.1
-  AuthorityMode: 0
+  AuthorityMode: 1
   TickSyncChildren: 0
   UseUnreliableDeltas: 0
   SyncPositionX: 1
@@ -19974,7 +19977,7 @@ MonoBehaviour:
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
   SyncOwnerTransformWhenParented: 1
-  AllowOwnerToParent: 0
+  AllowOwnerToParent: 1
 --- !u!114 &6822840457319119253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19992,6 +19995,18 @@ MonoBehaviour:
   UseRigidBodyForMotion: 1
   AutoUpdateKinematicState: 0
   AutoSetKinematicOnDespawn: 1
+--- !u!114 &6822840457319119254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6386883128945811552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752cc2edf020cb94e828e27aba1ce72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &6984636866782019250
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -20117,6 +20132,7 @@ GameObject:
   - component: {fileID: 4903685879833606370}
   - component: {fileID: 7388974545413936596}
   - component: {fileID: 7388974545413936597}
+  - component: {fileID: 7388974545413936601}
   - component: {fileID: 7388974545413936599}
   - component: {fileID: 7388974545413936598}
   - component: {fileID: 7388974545413936600}
@@ -20194,7 +20210,7 @@ MonoBehaviour:
   RotationMaxInterpolationTime: 0.1
   ScaleLerpSmoothing: 1
   ScaleMaxInterpolationTime: 0.1
-  AuthorityMode: 0
+  AuthorityMode: 1
   TickSyncChildren: 0
   UseUnreliableDeltas: 0
   SyncPositionX: 1
@@ -20241,7 +20257,7 @@ MonoBehaviour:
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
   SyncOwnerTransformWhenParented: 1
-  AllowOwnerToParent: 0
+  AllowOwnerToParent: 1
 --- !u!114 &7388974545413936600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20259,6 +20275,18 @@ MonoBehaviour:
   UseRigidBodyForMotion: 1
   AutoUpdateKinematicState: 0
   AutoSetKinematicOnDespawn: 1
+--- !u!114 &7388974545413936601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7381428121480352562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752cc2edf020cb94e828e27aba1ce72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7501118791118116305
 GameObject:
   m_ObjectHideFlags: 0
@@ -20273,8 +20301,9 @@ GameObject:
   - component: {fileID: 3755718334141238772}
   - component: {fileID: 7182363372644784452}
   - component: {fileID: 7501118791118116306}
-  - component: {fileID: 7501118791118116307}
+  - component: {fileID: 7501118791118116310}
   - component: {fileID: 7501118791118116308}
+  - component: {fileID: 7501118791118116307}
   - component: {fileID: 7501118791118116309}
   m_Layer: 9
   m_Name: Light
@@ -20323,7 +20352,7 @@ MonoBehaviour:
   RotationMaxInterpolationTime: 0.1
   ScaleLerpSmoothing: 1
   ScaleMaxInterpolationTime: 0.1
-  AuthorityMode: 0
+  AuthorityMode: 1
   TickSyncChildren: 0
   UseUnreliableDeltas: 0
   SyncPositionX: 1
@@ -20370,7 +20399,7 @@ MonoBehaviour:
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
   SyncOwnerTransformWhenParented: 1
-  AllowOwnerToParent: 0
+  AllowOwnerToParent: 1
 --- !u!114 &7501118791118116309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20388,6 +20417,18 @@ MonoBehaviour:
   UseRigidBodyForMotion: 1
   AutoUpdateKinematicState: 0
   AutoSetKinematicOnDespawn: 1
+--- !u!114 &7501118791118116310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7501118791118116305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752cc2edf020cb94e828e27aba1ce72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &7716770078827670027
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20423,6 +20464,7 @@ GameObject:
   - component: {fileID: 7716770078827670027}
   - component: {fileID: 4589840320946689326}
   - component: {fileID: 8145897745467050921}
+  - component: {fileID: 8145897745467050925}
   - component: {fileID: 8145897745467050922}
   - component: {fileID: 8145897745467050923}
   - component: {fileID: 8145897745467050924}
@@ -20473,7 +20515,7 @@ MonoBehaviour:
   RotationMaxInterpolationTime: 0.1
   ScaleLerpSmoothing: 1
   ScaleMaxInterpolationTime: 0.1
-  AuthorityMode: 0
+  AuthorityMode: 1
   TickSyncChildren: 0
   UseUnreliableDeltas: 0
   SyncPositionX: 1
@@ -20520,7 +20562,7 @@ MonoBehaviour:
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
   SyncOwnerTransformWhenParented: 1
-  AllowOwnerToParent: 0
+  AllowOwnerToParent: 1
 --- !u!114 &8145897745467050924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20538,6 +20580,18 @@ MonoBehaviour:
   UseRigidBodyForMotion: 1
   AutoUpdateKinematicState: 0
   AutoSetKinematicOnDespawn: 1
+--- !u!114 &8145897745467050925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8145897745467050920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752cc2edf020cb94e828e27aba1ce72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8241832107341477411
 GameObject:
   m_ObjectHideFlags: 0
@@ -20621,7 +20675,7 @@ MonoBehaviour:
   RotationMaxInterpolationTime: 0.1
   ScaleLerpSmoothing: 1
   ScaleMaxInterpolationTime: 0.1
-  AuthorityMode: 0
+  AuthorityMode: 1
   TickSyncChildren: 0
   UseUnreliableDeltas: 0
   SyncPositionX: 1
@@ -20668,7 +20722,7 @@ MonoBehaviour:
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
   SyncOwnerTransformWhenParented: 1
-  AllowOwnerToParent: 0
+  AllowOwnerToParent: 1
 --- !u!114 &8414373522737093550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20686,6 +20740,18 @@ MonoBehaviour:
   UseRigidBodyForMotion: 1
   AutoUpdateKinematicState: 0
   AutoSetKinematicOnDespawn: 1
+--- !u!114 &8414373522737093551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4748389957690298588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752cc2edf020cb94e828e27aba1ce72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &8449971087319946806
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -20734,7 +20800,7 @@ MonoBehaviour:
   RotationMaxInterpolationTime: 0.1
   ScaleLerpSmoothing: 1
   ScaleMaxInterpolationTime: 0.1
-  AuthorityMode: 0
+  AuthorityMode: 1
   TickSyncChildren: 0
   UseUnreliableDeltas: 0
   SyncPositionX: 1
@@ -20781,7 +20847,7 @@ MonoBehaviour:
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
   SyncOwnerTransformWhenParented: 1
-  AllowOwnerToParent: 0
+  AllowOwnerToParent: 1
 --- !u!114 &8449971087319946810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20799,6 +20865,18 @@ MonoBehaviour:
   UseRigidBodyForMotion: 1
   AutoUpdateKinematicState: 0
   AutoSetKinematicOnDespawn: 1
+--- !u!114 &8449971087319946811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4481010726851032441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752cc2edf020cb94e828e27aba1ce72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

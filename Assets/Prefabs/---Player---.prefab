@@ -1433,7 +1433,7 @@ MonoBehaviour:
   HoldingObject: 0
   pickupLayer:
     serializedVersion: 2
-    m_Bits: 5632
+    m_Bits: 1536
   cam: {fileID: 3699342831374053524}
   maxDistance: 5
   objectHolder: {fileID: 661203442953235486}
