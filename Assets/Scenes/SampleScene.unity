@@ -3828,7 +3828,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 8f11c1c234d904848b3efaba4df281f1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19688,7 +19688,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9310f4be6866cc04e90ee20ecb11130a, type: 2}
+  - {fileID: 2100000, guid: f50acc640f2cc824a95a722033d90b25, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19827,7 +19827,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9310f4be6866cc04e90ee20ecb11130a, type: 2}
+  - {fileID: 2100000, guid: f50acc640f2cc824a95a722033d90b25, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20007,6 +20007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752cc2edf020cb94e828e27aba1ce72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsHeld: 0
 --- !u!33 &6984636866782019250
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -20287,6 +20288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752cc2edf020cb94e828e27aba1ce72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsHeld: 0
 --- !u!1 &7501118791118116305
 GameObject:
   m_ObjectHideFlags: 0
@@ -20429,6 +20431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752cc2edf020cb94e828e27aba1ce72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsHeld: 0
 --- !u!65 &7716770078827670027
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20592,6 +20595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752cc2edf020cb94e828e27aba1ce72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsHeld: 0
 --- !u!1 &8241832107341477411
 GameObject:
   m_ObjectHideFlags: 0
@@ -20752,6 +20756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752cc2edf020cb94e828e27aba1ce72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsHeld: 0
 --- !u!33 &8449971087319946806
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -20877,6 +20882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752cc2edf020cb94e828e27aba1ce72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsHeld: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
