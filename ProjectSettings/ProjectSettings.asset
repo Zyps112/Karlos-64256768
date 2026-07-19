@@ -938,11 +938,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: df355eba-b235-4c4c-b5b0-7fecefe1c2ae
+  cloudProjectId: 2d9cfa8c-1ab9-4b11-82ff-9e276d4a3d4d
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: Karlos 64256768
-  organizationId: sotozyann50
+  organizationId: zyannsoto6
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
