@@ -7,7 +7,7 @@ public class PlayerMovement : NetworkBehaviour
     public CharacterController controller;
     public Transform cam;
     public Camera playerCam;
-    public AudioListener audioListener; // add this if you have one
+    public AudioListener audioListener; 
 
     [Header("Ground Movement Config")]
     public float speed;
@@ -155,7 +155,6 @@ public class PlayerMovement : NetworkBehaviour
         controller.height = newHeight;
         controller.center = new Vector3(0, controller.center.y - (heightDiff / 2), 0);
 
-        // Move camera to top of controller, smoothly
         float targetCamY = controller.center.y + (controller.height / 2) - 0.1f;
         float newCamY = Mathf.Lerp(cam.localPosition.y, targetCamY, crouchTransitionSpeed * Time.deltaTime);
         cam.localPosition = new Vector3(cam.localPosition.x, newCamY, cam.localPosition.z);
